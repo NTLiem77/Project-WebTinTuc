@@ -236,6 +236,50 @@ public class UserImplement implements UserDAO {
 
 		return user;
 	}
+	public User findAccountWithUsernameAndEmail(String username, String email) {
+		Connection c = null;
+		PreparedStatement statement = null;
+		ResultSet result = null;
+		User user = null;
+		Role roleid=null;
+		try {
+			c = ConnectionDatabase.getConnection();
+			String sql = "SELECT * FROM USERS AS U "
+					+ "INNER JOIN ROLES AS R ON U.ROLEID = R.ID "
+					+ "WHERE U.username = ? AND U.email = ? ";
+			statement = c.prepareStatement(sql);
+			statement.setString(1, username);
+			statement.setString(2, email);
+			result = statement.executeQuery();
+			while (result.next()) {
+				user = new User();
+				roleid = new Role();
+				user.setRoleId(roleid);
+				user.setId(result.getLong("id"));
+				user.setUserName(result.getString("username"));
+				user.setPassword(result.getString("password"));
+				user.setFullName(result.getString("fullname"));
+				user.setEmail(result.getString("email"));
+				user.setStatus(result.getInt("status"));
+//				roleid.setId(result.getLong("id"));
+				roleid.setName(result.getString("role_name"));
+				roleid.setDescription(result.getString("description"));
+				user.setCreatedDate(result.getTimestamp("createddate"));
+				user.setModifiedDate(result.getTimestamp("modifieddate"));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if (c != null)
+			try {
+				c.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		
+		return user;
+	}
 
 	
 	public static void main(String[] args) {

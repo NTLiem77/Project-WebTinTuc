@@ -32,10 +32,10 @@
 			</c:when>
 
 			<c:when test="${USER.roleId.name == 'author' }">
-			<li><a class="app-menu__item " href="admin-home"><i
+			<li><a class="app-menu__item " href="admin-home-author"><i
 						class="app-menu__icon bx bx-tachometer"></i><span
 						class="app-menu__label">Bảng điều khiển</span></a></li>
-			<li><a class="app-menu__item" href="admin-posts"><i
+			<li><a class="app-menu__item" href="admin-posts-author"><i
 						class="app-menu__icon bx bx-purchase-tag-alt"></i><span
 						class="app-menu__label">Quản lý bài báo</span></a></li>
 			</c:when>

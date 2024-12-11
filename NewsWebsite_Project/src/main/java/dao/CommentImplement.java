@@ -146,6 +146,17 @@ public class CommentImplement implements CommentDAO{
 		return result;
 	}
 
-	
+	public static void main(String[] args) {
+		Comment comment = new Comment();
+		User user = new User();
+		News news = new News();
+		comment.setNewsId(news);
+		comment.setUserId(user);
+		news.setId((long) 58);
+		user.setId(1L);
+		comment.setContent("Cùi bắp");
+		
+		System.out.println(new CommentImplement().insert(comment));
+	}
 
 }

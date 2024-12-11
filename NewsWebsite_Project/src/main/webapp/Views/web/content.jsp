@@ -161,7 +161,16 @@
 								</c:forEach>
 							</c:if>
 						</div>
-						<form class="row" action="" method="post">
+						<c:choose>
+							<c:when test="${ empty sessionScope.USER}">
+								<div class="col-md-12">
+								<h4 class="title">Ý kiến</h4>
+								<div>Bạn không thể bình luận bài báo này khi chưa đăng nhập tài khoản</div>
+								<div> <a href='<c:url value ="account-login"/>'>Đăng nhập</a></div>
+							</div>
+							</c:when>
+							<c:otherwise>
+								<form class="row" action="Comment" method="post">
 							<div class="col-md-12">
 								<h4 class="title">Ý kiến</h4>
 							</div>
@@ -169,11 +178,16 @@
 								<label for="message">Nội dung <span class="required"></span></label>
 								<textarea class="form-control" required="required"
 									name="message" placeholder="Ý kiến của bạn ..."></textarea>
+									<input type = "hidden" name="user" value="${USER.id}" />
+									<input type = "hidden" name ="news" value="${newsDetail.id }" />
 							</div>
 							<div class="form-group col-md-12">
-								<button class="btn btn-primary">Gửi</button>
+								<button class="btn btn-primary" type="submit">Gửi</button>
 							</div>
 						</form>
+							</c:otherwise>
+						</c:choose>
+						
 					</div>
 				</div>
 			</div>

@@ -56,8 +56,8 @@ public class RegisterController extends HttpServlet {
 			user.setStatus(1);
 			user.setRoleId(roleId);
 			roleId.setId(2L);
-		if(login.checkUserExists(username)) {
-			message = "Tên tài khoản này đã tồn tại!";
+		if(login.checkUserExists(username) != null || login.checkEmailExists(email)!= null) {
+			message = "Tên tài khoản hoặc email này đã tồn tại!";
 			request.setAttribute("Message", message);
 			request.setAttribute("UserRegister", user);
 			request.getRequestDispatcher("/Views/register.jsp").forward(request, response);

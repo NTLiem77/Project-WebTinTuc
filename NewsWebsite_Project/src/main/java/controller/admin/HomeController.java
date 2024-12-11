@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Category;
 import model.User;
 import service.CategoryService;
 import service.NewsService;
@@ -37,6 +38,8 @@ public class HomeController extends HttpServlet {
 		quantily.add(quantilyNews);
 		quantily.add(quantilyCate);
 		quantily.add(quantilyUser);
+		ArrayList<Category> listCategory = (ArrayList<Category>) cateSer.findAll();
+		session.setAttribute("listCate", listCategory);
 		session.setAttribute("Admin_ListUser", listUser);
 		session.setAttribute("Admin_Quantily", quantily);
 		RequestDispatcher rd = req.getRequestDispatcher("/Views/admin/home.jsp");

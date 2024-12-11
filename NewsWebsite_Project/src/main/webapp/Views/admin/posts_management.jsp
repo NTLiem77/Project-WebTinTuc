@@ -29,7 +29,7 @@
 						<div class="row element-button">
 							<div class="col-sm-2">
 
-								<a class="btn btn-add btn-sm" href="admin-addnews"
+								<a class="btn btn-add btn-sm" href="admin-addnews-author"
 									title="Thêm"><i class="fas fa-plus"></i> Thêm bài viết mới</a>
 							</div>
 							<div class="col-sm-2">

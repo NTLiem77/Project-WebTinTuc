@@ -12,6 +12,8 @@ public class User extends AbstractModel{
 	public User() {
 		roleId = new Role();
 	}
+	
+	
 	public String getUserName() {
 		return userName;
 	}

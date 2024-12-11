@@ -227,8 +227,7 @@
 							</a> </figure>
 							<div class="padding">
 								<h1>
-									<a
-										href="<c:url value ='/Content?id=${sessionScope.listNews.get( i ).id}' />">${ sessionScope.listNews.get( i).title }</a>
+									<a href="<c:url value ='/Content?id=${sessionScope.listNews.get( i ).id}' />">${ sessionScope.listNews.get( i).title }</a>
 								</h1>
 							</div>
 						</div>
@@ -236,6 +235,15 @@
 						</c:if>
 					</c:forEach>
 				</div>
+				</aside>
+				<aside>
+				<img src = "<c:url value ='/image/web/news/adv3.png' />"alt="quảng cáo 1"/>
+				</aside>
+				<aside>
+				<img src = "<c:url value ='/image/web/news/adv4.jpg' />"alt="quảng cáo 1"/>
+				</aside>
+				<aside>
+				<img src = "<c:url value ='/image/web/news/adv1.png' />"alt="quảng cáo 1"/>
 				</aside>
 			</div>
 		</div>
