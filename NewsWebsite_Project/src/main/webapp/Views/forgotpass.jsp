@@ -14,9 +14,16 @@
 						<div class="box-body">
 							<h4>Quên mật khẩu</h4>
 							<form method="post" action ="account-forgot">
+							<div class="form-group text-center">
+									<span class="text-muted" style ="color: red"> ${Message }</span>
+								</div>
 								<div class="form-group">
 									<label>Tên tài khoản</label>
 									<input type="text" name="username" class="form-control" required>
+								</div>
+								<div class="form-group">
+									<label>Email</label>
+									<input type="email" name="email" class="form-control" required>
 								</div>
 								<div class="form-group text-right">
 									<button class="btn btn-primary btn-block">Quên mật khẩu</button>

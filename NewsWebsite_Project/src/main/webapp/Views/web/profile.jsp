@@ -28,7 +28,7 @@
 									</p> -->
 									<p>
 										Số điện thoại: <span class="bold">+123 45 678 9</span> <br>
-										Email: <span class="bold">${ sessionScope.USER.fullName }</span>
+										Email: <span class="bold">${ sessionScope.USER.email }</span>
 										<br>
 										
 									</p>

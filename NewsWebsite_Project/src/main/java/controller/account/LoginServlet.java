@@ -28,11 +28,10 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String uri = request.getRequestURI();
-//		LocalDate now = LocalDate.now();
 		if (uri.contains("account-login")) {
 			request.getRequestDispatcher("/Views/login.jsp").forward(request, response);
 		} else if (uri.contains("account-logout")) {
-			session.removeAttribute("USER");
+			session.invalidate();
 			request.getRequestDispatcher("/Views/login.jsp").forward(request, response);
 		}
 	}
@@ -44,17 +43,17 @@ public class LoginServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		UserService service = new UserService();
+		// authentication kiem tra xac thuc nguoi dung co ton tai hay khong
 		User user = (service.findAccount(username, password));
 		if (user != null) { // neu tai khoan ton tai
+			// authorization kiem tra quyen cua tai khoan vua dang nhap
 			if (user.getRoleId().getName().equals("admin") && user.getStatus() == 1) { // neu la admin
 				session.setAttribute("USER", user);
 				request.getRequestDispatcher("/admin.jsp").forward(request, response);
 			} else if (user.getRoleId().getName().equals("author") && user.getStatus() == 1) { // neu la tac gia
-//				request.getRequestDispatcher("/admin.jsp").forward(request, response);
 				response.sendRedirect(request.getContextPath()+"/admin-home-author");
 				session.setAttribute("USER", user);
 			} else if (user.getRoleId().getName().equals("user") && user.getStatus() == 1) { // neu la user
-//				request.getRequestDispatcher("/web.jsp").forward(request, response);
 				response.sendRedirect(request.getContextPath()+"/Home");
 				session.setAttribute("USER", user);
 			} else { //

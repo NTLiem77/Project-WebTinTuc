@@ -24,7 +24,7 @@
 	
 	<filter>
 		<filter-name>servletFilterAdmin</filter-name>
-		<filter-class>controller.filter.FilterAdmin</filter-class>
+		<filter-class>controller.filter.AuthorizationFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>servletFilterAdmin</filter-name>

@@ -45,12 +45,17 @@ public class SearchServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String title = request.getParameter("search");
 		System.out.println(title);
-		NewsService news = new NewsService();
-		ArrayList<News> list = (ArrayList<News>) news.findByTitle(title);
-		System.out.println(list.size());
-		request.setAttribute("search", title);
-		request.setAttribute("ResultSearch", list);
-		request.getRequestDispatcher("/Views/web/search.jsp").forward(request, response);
+		if(title == null || title.equals("".trim())) {
+			request.getRequestDispatcher("/Views/web/search.jsp").forward(request, response);
+		}else {
+			
+			NewsService news = new NewsService();
+			ArrayList<News> list = (ArrayList<News>) news.findByTitle(title);
+			System.out.println(list.size());
+			request.setAttribute("search", title);
+			request.setAttribute("ResultSearch", list);
+			request.getRequestDispatcher("/Views/web/search.jsp").forward(request, response);
+		}
 	}
 
 }

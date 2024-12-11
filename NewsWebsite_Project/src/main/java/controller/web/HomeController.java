@@ -31,12 +31,15 @@ public class HomeController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
+		ServletContext application = req.getServletContext();
 		CategoryService category = new CategoryService();
 		NewsService news = new NewsService();
-		ArrayList<Category> listCategory = (ArrayList<Category>) category.findAll();
+
 		ArrayList<News> listAllNews = (ArrayList<News>) news.findAll();
+		ArrayList<Category> listCategory = (ArrayList<Category>) category.findAll();
+		application.setAttribute("listCate", listCategory);
 		req.setAttribute("listAllNews", listAllNews);
-		session.setAttribute("listCate", listCategory);
+
 		req.setAttribute("TITLE", "Trang báo điện tử hàng đầu Việt Nam");
 		RequestDispatcher rd = req.getRequestDispatcher("/Views/web/home.jsp");
 		rd.forward(req, resp);

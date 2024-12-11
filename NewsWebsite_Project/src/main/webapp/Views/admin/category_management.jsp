@@ -28,7 +28,7 @@
 						<div class="row element-button">
 							<div class="col-sm-2">
 
-								<a class="btn btn-add btn-sm" href="form-add-san-pham.html"
+								<a class="btn btn-add btn-sm" href="admin-addcategory"
 									title="Thêm"><i class="fas fa-plus"></i> Thêm chủ đề mới</a>
 							</div>
 							<div class="col-sm-2">

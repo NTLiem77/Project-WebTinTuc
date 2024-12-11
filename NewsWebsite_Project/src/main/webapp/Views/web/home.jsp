@@ -48,8 +48,7 @@
 									<a href="#">${ listAllNews.get(i).categoryId.name }</a>
 								</div>
 								<h1>
-									<a
-										href="<c:url value ='/Content?id=${listAllNews.get(i).id}' />">${listAllNews.get(i).title }</a>
+									<a href="<c:url value ='/Content?id=${listAllNews.get(i).id}' />">${listAllNews.get(i).title }</a>
 								</h1>
 								<div class="time">
 									<fmt:formatDate pattern="dd/MM/yyyy"
@@ -245,7 +244,7 @@
 								<footer> <a href="#" class="love"><i
 									class="ion-android-favorite-outline"></i>
 									<div>273</div></a> <a class="btn btn-primary more"
-									href="single.html">
+									href="<c:url value ='/Content?id=${listAllNews.get( i ).id}' />">
 									<div>Chi tiết</div>
 									<div>
 										<i class="ion-ios-arrow-thin-right"></i>
@@ -283,6 +282,12 @@
 						</article>
 					</c:forEach>
 				</div>
+				</aside>
+				<aside>
+				<img src = "<c:url value ='/image/web/news/adv1.png' />"alt="quảng cáo 1"/>
+				</aside>
+				<aside>
+				<img src = "<c:url value ='/image/web/news/adv2.png' />"alt="quảng cáo 1"/>
 				</aside>
 
 
