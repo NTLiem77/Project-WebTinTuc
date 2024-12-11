@@ -10,14 +10,14 @@
    #### JSTL & EL  để thay thế mã java trong trang JSP
 
 ## Phân công công việc
-### Nguyễn Văn Lênh:
+### Nguyễn Thanh Liêm:
    #### Phân chia giao diện : trang người dùng và Admin quản lí
    #### Chức năng: Đăng nhập , Đăng kí, Quên mật khẩu bằng Email, Đăng xuất
    #### Phân quyền Admin , Author ,User.
    #### Trang chi tiết nội dung tin tức
    #### Tìm kiếm bài báo
    #### Bình luận
-### Nguyễn Tấn Kiệt:
+### Trần Quốc Tuấn:
    #### Kết nối database lấy dữ liệu
    #### Tạo lớp model mapping database
    #### Trang chủ và các trang danh mục
